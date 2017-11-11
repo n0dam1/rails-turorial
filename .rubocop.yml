@@ -1,5 +1,10 @@
 AllCops:
   TargetRubyVersion: 2.4
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
+    - vendor/**/*
 
 Rails:
   Enabled: true
@@ -11,4 +16,7 @@ Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
   Enabled: false
