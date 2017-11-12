@@ -194,3 +194,20 @@ input {
   }
 }
 // scss-lint:enable SelectorFormat
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+// scss-lint:disable IdSelector
+#session-remember-me {
+  margin-left: 0;
+  width: auto;
+}
+// scss-lint:disable IdSelector
