@@ -3,6 +3,15 @@
 // mixins, variables, etc.
 $gray-medium-light: #eaeaea;
 $white: #fff;
+$darkgray-medium: #bbb;
+$red: #f00;
+
+@mixin vendor-prefix($name, $argument) {
+  -moz-#{$name}: #{$argument};
+  -webkit-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
 // universal
 body {
   padding-top: 60px;
@@ -98,3 +107,90 @@ footer {
     }
   }
 }
+// miscellaneous
+// scss-lint:disable SelectorFormat
+.debug_dump {
+  @include vendor-prefix(box-sizing, border-box);
+  clear: both;
+  float: left;
+  margin-top: 45px;
+  width: 100%;
+}
+// scss-lint:enable SelectorFormat
+
+// sidebar
+aside {
+  section {
+    margin-top: 20px;
+    padding: 10px 0;
+
+    .user-info {
+      margin-top: 20px;
+    }
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar-edit {
+  margin-top: 15px;
+}
+
+// forms
+.uneditable-input,
+input,
+select,
+textarea {
+  @include vendor-prefix(box-sizing, border-box);
+  border: 1px solid $darkgray-medium;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+// scss-lint:disable ImportantRule
+input {
+  height: auto !important;
+}
+// scss-lint:enable ImportantRule
+
+.error-explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
+
+// scss-lint:disable SelectorFormat
+.field_with_errors {
+  // scss-lint:disable PlaceholderInExtend
+  @extend .has-error;
+  // scss-lint:enable PlaceholderInExtend
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+// scss-lint:enable SelectorFormat
